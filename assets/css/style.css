@@ -10,3 +10,15 @@ h1{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 2em;
 }
+
+.jumbotron{
+    background-color: rgb(255, 218, 95);
+}
+
+.card-body{
+    background-color: rgb(195, 233, 235);
+}
+
+.card-header{
+    background-color: rgb(123, 155, 192);
+}
