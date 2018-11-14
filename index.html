@@ -8,10 +8,9 @@
     <!-- Bootstrap File -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
-
-
-    <!-- JQuery -->
+    <link rel="stylesheet" href="assets/css/style.css" />
     <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="assets/javascript/game.js"></script>
 
 </head>
 
@@ -36,7 +35,7 @@
 
 
                 <!-- Display Target Number -->
-                <div id="targetNumber" class="card">
+                <div id="targetNumber" class="card header text-center">
                     <h4 class="card-header ">Target Number </h4>
                     <div class="card-body">
                         <div class="text-center">
@@ -44,15 +43,18 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="col-lg-3">
 
                 <!-- Display Wins and Loses -->
-                <div id="winsLoses" class="card">
+                <div id="winsLoses" class="card text-center">
                     <h4 class="card-header">Wins and Loses</h4>
                     <div class="card-body">
                         <div class="text-center">
-                            <h2>Wins:
+                            <h4>Wins:
                                 <span id="wins"></span></h1>
-                                <h2>Loses:
+                                <h4>Loses:
                                     <span id="loses"></span></h2>
                         </div>
                     </div>
@@ -60,12 +62,16 @@
             </div>
         </div>
 
+        <div class="row">
+            <hr></hr>
+        </div>
+
 
         <div class="row">
 
             <div class="col-lg-6">
 
-                <div id="sizeControls" class="card">
+                <div id="sizeControls" class="card text-center">
 
                     <div class="col-lg-3">
 
@@ -82,21 +88,19 @@
                                 <span class="fa fa-square-o"></span> </button>
                             <button class="btn btn-danger btn-lg crystal-3">
                                 <span class="fa fa-play"></span> </button>
-                            <button class="btn btn-danger btn-lg crystal-3">
+                            <button class="btn btn-danger btn-lg crystal-4">
                                 <span class="fa fa-cube"></span> </button>
                         </div>
                     </div>
                 </div>
 
             </div>
-        </div>
 
 
-        <div class="row">
             <div class="col-lg-6">
 
                 <!-- Total Score  -->
-                <div id="totalScore" class="card">
+                <div id="totalScore" class="card text-center">
                     <h4 class="card-header">Total Score: </h4>
                     <div class="card-body">
                         <div class="text-center">
@@ -120,182 +124,7 @@
     </div>
     </div>
 
-    <script>
 
-        // JavaScript function that wraps everything
-        $(document).ready(function () {
-
-            var diamon1 = 0;
-            var diamon2 = 0;
-            var diamon3 = 0;
-            var diamon4 = 0;
-
-            //random target number bigger than 20
-            function randomNumber() {
-                return (Math.floor(Math.random() * 40 + 20));
-            }
-
-            //random number for Diamond smaller than 20
-            function randomNumberDiamond() {
-                return (Math.floor(Math.random() * 10));
-            }
-
-            //show random number
-            var targetNumber = randomNumber();
-            document.getElementById("random-number").innerHTML = targetNumber;
-
-            function newRandomforDiamond() {
-                diamond1 = randomNumberDiamond();
-                diamond2 = randomNumberDiamond();
-                diamond3 = randomNumberDiamond();
-                diamond4 = randomNumberDiamond();
-            }
-
-            newRandomforDiamond();
-            var totalScore = 0;
-            var wins = 0;
-            var loses = 0;
-
-            // Diamond1 button
-            $(".crystal-1").on("click", function () {
-
-                totalScore = diamond1 + totalScore;
-                document.getElementById("total-score").innerHTML = totalScore;
-                //show wins
-                if (totalScore == targetNumber) {
-                    wins += 1;
-                    document.getElementById("wins").innerHTML = wins;
-                    totalScore = 0;
-
-                    newRandomforDiamond();
-
-                    //show random number
-                    targetNumber = randomNumber();
-                    document.getElementById("random-number").innerHTML = targetNumber;
-
-                }
-
-
-                //show loses
-                if (totalScore > targetNumber) {
-                    loses += 1;
-                    document.getElementById("loses").innerHTML = loses;
-                    totalScore = 0;
-                    newRandomforDiamond();
-
-                    //show random number
-                    targetNumber = randomNumber();
-                    document.getElementById("random-number").innerHTML = targetNumber;
-                }
-
-
-            });
-
-            // Diamond2 button
-            $(".crystal-2").on("click", function () {
-
-                totalScore = diamond2 + totalScore;
-                document.getElementById("total-score").innerHTML = totalScore;
-
-                //show wins
-                if (totalScore == targetNumber) {
-                    wins += 1;
-                    document.getElementById("wins").innerHTML = wins;
-                    totalScore = 0;
-                    newRandomforDiamond();
-                    //show random number
-                    targetNumber = randomNumber();
-                    document.getElementById("random-number").innerHTML = targetNumber;
-                }
-
-
-                //show loses
-                if (totalScore > targetNumber) {
-                    loses += 1;
-                    document.getElementById("loses").innerHTML = loses;
-                    totalScore = 0;
-                    newRandomforDiamond();
-                    //show random number
-                    targetNumber = randomNumber();
-                    document.getElementById("random-number").innerHTML = targetNumber;
-                }
-
-
-            });
-
-            // Diamond3 button
-            $(".crystal-3").on("click", function () {
-
-                totalScore = diamond3 + totalScore;
-                document.getElementById("total-score").innerHTML = totalScore;
-
-
-                //show wins
-                if (totalScore == targetNumber) {
-                    wins += 1;
-                    document.getElementById("wins").innerHTML = wins;
-                    totalScore = 0;
-                    newRandomforDiamond();
-                    //show random number
-                    targetNumber = randomNumber();
-                    document.getElementById("random-number").innerHTML = targetNumber;
-
-                }
-
-
-                //show loses
-                if (totalScore > targetNumber) {
-                    loses += 1;
-                    document.getElementById("loses").innerHTML = loses;
-                    totalScore = 0;
-                    newRandomforDiamond();
-                    //show random number
-                    targetNumber = randomNumber();
-                    document.getElementById("random-number").innerHTML = targetNumber;
-                }
-
-            });
-
-            // Diamond4 button
-            $(".crystal-4").on("click", function () {
-
-                totalScore = diamond4 + totalScore;
-                document.getElementById("total-score").innerHTML = totalScore;
-
-                //show wins
-                if (totalScore == targetNumber) {
-                    wins += 1;
-                    document.getElementById("wins").innerHTML = wins;
-                    totalScore = 0;
-                    newRandomforDiamond();
-                    //show random number
-                    targetNumber = randomNumber();
-                    document.getElementById("random-number").innerHTML = targetNumber;
-                }
-
-
-                //show loses
-                if (totalScore > targetNumber) {
-
-                    loses += 1;
-                    document.getElementById("loses").innerHTML = loses;
-                    totalScore = 0;
-                    newRandomforDiamond();
-                    //show random number
-                    targetNumber = randomNumber();
-                    document.getElementById("random-number").innerHTML = targetNumber;
-                }
-
-
-
-
-            });
-
-
-
-        });
-
-    </script>
 
 </body>
 
